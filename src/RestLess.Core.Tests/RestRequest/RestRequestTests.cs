@@ -80,7 +80,7 @@ namespace RestLess.Tests
             httpResponse.RequestMessage
                         .RequestUri
                         .OriginalString
-                        .ShouldBeEquivalentTo(expectedUrl);
+                        .Should().BeEquivalentTo(expectedUrl);
 
             httpResponse.StatusCode
                         .Should()
@@ -112,7 +112,7 @@ namespace RestLess.Tests
                                          .WithContent(testObject, "testObject");
 
             var response = await restRequest.ReadAsObject<TestObject>();
-            response.Value.ShouldBeEquivalentTo("success");                       
+            response.Value.Should().BeEquivalentTo("success");                       
         }
 
         private static readonly object[] ShouldBeRightHttpMethodTestCases =

@@ -37,7 +37,8 @@ namespace RestLess.Tests.Tests
             httpResponse.RequestMessage
                         .RequestUri
                         .OriginalString
-                        .ShouldBeEquivalentTo(fullUrl);
+                        .Should<string>()
+                        .BeEquivalentTo(fullUrl);
 
             httpResponse.StatusCode
                         .Should()

@@ -53,10 +53,12 @@ namespace RestLess.Tests.Tests
                   .HaveCount(2);
 
             people.Page
-                  .ShouldBeEquivalentTo(1);
+                  .Should<int>()
+                  .BeEquivalentTo(1);
 
             people.PageCount
-                  .ShouldBeEquivalentTo(2);
+                  .Should<int>()
+                  .BeEquivalentTo(2);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }

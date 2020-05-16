@@ -40,7 +40,8 @@ namespace RestLess.Tests.Tests
                     .Which
                     .ReadAsStringAsync()
                     .Result
-                    .ShouldBeEquivalentTo(content);
+                    .Should<string>()
+                    .BeEquivalentTo(content);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -76,7 +77,8 @@ namespace RestLess.Tests.Tests
                     .Which
                     .ReadAsStringAsync()
                     .Result
-                    .ShouldBeEquivalentTo("firstName=John&lastName=Doe");
+                    .Should<string>()
+                    .BeEquivalentTo("firstName=John&lastName=Doe");
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -115,7 +117,8 @@ Content-Disposition: form-data; name=content; filename=Api07File.xml; filename*=
                     .Which
                     .ReadAsStringAsync()
                     .Result
-                    .ShouldBeEquivalentTo(content);
+                    .Should<string>()
+                    .BeEquivalentTo(content);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -158,7 +161,8 @@ john
                     .Which
                     .ReadAsStringAsync()
                     .Result
-                    .ShouldBeEquivalentTo(content);
+                    .Should<string>()
+                    .BeEquivalentTo(content);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -201,7 +205,8 @@ john
                     .Which
                     .ReadAsStringAsync()
                     .Result
-                    .ShouldBeEquivalentTo(content);
+                    .Should<string>()
+                    .BeEquivalentTo(content);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }

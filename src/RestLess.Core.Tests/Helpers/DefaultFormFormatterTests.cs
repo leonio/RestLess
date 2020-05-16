@@ -40,7 +40,7 @@ namespace RestLess.Tests.Helpers
 
             var result = formatter.Format(expected);
 
-            result.ShouldBeEquivalentTo(expected);
+            result.Should().BeEquivalentTo(expected);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace RestLess.Tests.Helpers
 
             var result = formatter.Format(value);
 
-            result.ShouldBeEquivalentTo(expected);
+            result.Should().BeEquivalentTo(expected);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace RestLess.Tests.Helpers
 
             var result = formatter.Format(value);
 
-            result.ShouldBeEquivalentTo(expected);
+            result.Should().BeEquivalentTo(expected);
         }
 
         [Test]
@@ -108,7 +108,7 @@ namespace RestLess.Tests.Helpers
 
             var result = formatter.Format(value);
 
-            result.ShouldBeEquivalentTo(expected);
+            result.Should().BeEquivalentTo(expected);
         }
 
         private class ObjectWithoutAttributes

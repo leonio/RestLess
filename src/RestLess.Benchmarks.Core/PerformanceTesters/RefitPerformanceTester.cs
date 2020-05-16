@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
@@ -33,7 +34,7 @@ namespace Benchmarks.PerformanceTesters
 
         private class UrlParameterFormatter : IUrlParameterFormatter
         {
-            public string Format(object value, ParameterInfo parameterInfo)
+            public string Format(object value, ICustomAttributeProvider attributeProvider, Type type)
             {
                 if (value is IEnumerable<KeyValuePair<string, object>> dictionary)
                 {

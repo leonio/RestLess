@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard1.5</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <Product>RestLess.Tasks</Product>
     <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll. -->
 		<NoPackageAnalysis>true</NoPackageAnalysis>
@@ -26,6 +26,9 @@
 
     <!-- marks all packages as 'local only' so they don't end up in the nuspec -->
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    <PackageReference Update="Microsoft.Build" Version="16.5.0" />
+    <PackageReference Update="Microsoft.Build.Tasks.Core" Version="16.5.0" />
+    <PackageReference Update="Microsoft.CodeAnalysis.CSharp" Version="3.5.0" />
   </ItemGroup> 
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net46'">    

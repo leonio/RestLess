@@ -54,7 +54,7 @@ namespace RestLess.Tests.Tests
             IApi05 restClient = RestClient.For<IApi05>(url, settings);
 
             string stringResponse = await restClient.GetStringAsync();
-            stringResponse.ShouldBeEquivalentTo(response);
+            stringResponse.Should<string>().BeEquivalentTo(response);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -105,7 +105,7 @@ namespace RestLess.Tests.Tests
             using (StreamReader reader = new StreamReader(stream))
             {
                 var stringResponse = reader.ReadToEnd();
-                stringResponse.ShouldBeEquivalentTo(response);
+                stringResponse.Should<string>().BeEquivalentTo(response);
             }
 
             mockHttp.VerifyNoOutstandingExpectation();
@@ -130,7 +130,7 @@ namespace RestLess.Tests.Tests
 
             byte[] bytes = await restClient.GetByteArrayAsync();
             string stringResponse = Encoding.UTF8.GetString(bytes);
-            stringResponse.ShouldBeEquivalentTo(response);
+            stringResponse.Should<string>().BeEquivalentTo(response);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }
@@ -198,11 +198,14 @@ namespace RestLess.Tests.Tests
 
             Person student = await restClient.GetStudentAsync();
             student.FirstName
-                   .ShouldBeEquivalentTo("Bob");
+                   .Should<string>()
+                   .BeEquivalentTo("Bob");
             student.LastName
-                   .ShouldBeEquivalentTo("Walker");
+                   .Should<string>()
+                   .BeEquivalentTo("Walker");
             student.Age
-                   .ShouldBeEquivalentTo(22);
+                   .Should<string>()
+                   .BeEquivalentTo(22);
 
             mockHttp.VerifyNoOutstandingExpectation();
         }

@@ -26,7 +26,7 @@ namespace RestLess.Tests.Tests
             };
 
             Action job = () => RestClient.For<IApi04>(url, settings);
-            job.ShouldThrow<ArgumentException>();
+            job.Should().Throw<ArgumentException>();
         }
     }
 }

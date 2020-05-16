@@ -21,7 +21,7 @@ namespace RestLess.Tasks.Tests.Generation
         public void ShouldThrowMultipleRestAttributes(string methodName)
         {
             Action job = () => GetRequestInfo<IRestApi00>(methodName);
-            job.ShouldThrowExactly<ErrorDiagnosticException>()
+            job.Should().ThrowExactly<ErrorDiagnosticException>()
                .And
                .Error
                .Should()
@@ -34,7 +34,7 @@ namespace RestLess.Tasks.Tests.Generation
         public void ShouldThrowMissingHttpAttributes(string methodName)
         {
             Action job = () => GetRequestInfo<IRestApi00>(methodName);
-            job.ShouldThrowExactly<ErrorDiagnosticException>()
+            job.Should().ThrowExactly<ErrorDiagnosticException>()
                .And
                .Error
                .Should()
@@ -52,7 +52,7 @@ namespace RestLess.Tasks.Tests.Generation
         public void ShouldThrowMultipleHttpAttributes(string methodName)
         {
             Action job = () => GetRequestInfo<IRestApi00>(methodName);
-            job.ShouldThrowExactly<ErrorDiagnosticException>()
+            job.Should().ThrowExactly<ErrorDiagnosticException>()
                .And
                .Error
                .Should()
@@ -64,7 +64,7 @@ namespace RestLess.Tasks.Tests.Generation
         public void ShouldThrowReturnType(string methodName)
         {
             Action job = () => GetRequestInfo<IRestApi00>(methodName);
-            job.ShouldThrowExactly<ErrorDiagnosticException>()
+            job.Should().ThrowExactly<ErrorDiagnosticException>()
                .And
                .Error
                .Should()
@@ -173,7 +173,7 @@ namespace RestLess.Tasks.Tests.Generation
         {
             Action job = () => new RequestInfo(GetInterfaceDeclaration(interfaceName, "IRestApi04.cs"));
 
-            job.ShouldNotThrow<ErrorDiagnosticException>();
+            job.Should().NotThrow<ErrorDiagnosticException>();
         }
 
         [Test]
@@ -220,7 +220,7 @@ namespace RestLess.Tasks.Tests.Generation
                        .As<LiteralExpressionSyntax>()
                        .Token
                        .ValueText
-                       .ShouldBeEquivalentTo("fileName");
+                       .Should().BeEquivalentTo("fileName");
 
             requestInfo.WithContentArguments[1]
                        .Arguments[3]
@@ -228,7 +228,7 @@ namespace RestLess.Tasks.Tests.Generation
                        .As<LiteralExpressionSyntax>()
                        .Token
                        .ValueText
-                       .ShouldBeEquivalentTo("text/plain");
+                       .Should().BeEquivalentTo("text/plain");
         }
 
         [Test]
@@ -250,7 +250,7 @@ namespace RestLess.Tasks.Tests.Generation
                        .As<LiteralExpressionSyntax>()
                        .Token
                        .ValueText
-                       .ShouldBeEquivalentTo("newContent");
+                       .Should().BeEquivalentTo("newContent");
         }
 
         private static RequestInfo GetRequestInfo<IRestApi>(string methodName, string fileName = null)

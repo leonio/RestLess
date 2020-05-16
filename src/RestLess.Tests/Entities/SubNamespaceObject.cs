@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DoLess.UriTemplates;
 
-namespace RestLess.Tests
+namespace RestLess.Tests.Entities
 {
     public class SubNamespaceObject : QueryObject
     {

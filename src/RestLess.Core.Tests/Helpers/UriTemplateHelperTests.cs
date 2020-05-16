@@ -26,7 +26,7 @@ namespace RestLess.Core.Tests.Helpers
         {
             string actualUriTemplate = UriTemplateHelper.AppendUriTemplateSuffix(uriTemplate, uriTemplateSuffix);
 
-            actualUriTemplate.ShouldBeEquivalentTo(expectedUriTemplate);
+            actualUriTemplate.Should().BeEquivalentTo(expectedUriTemplate);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace RestLess.Core.Tests.Helpers
         public void ShouldExtractPathAndQueryAsExpected(string uriTemplate, string expectedPath, string expectedQueryParameters)
         {
             UriTemplateHelper.ExtractPathAndQuery(uriTemplate, out string path, out IList<string> set);
-            path.ShouldBeEquivalentTo(expectedPath);
+            path.Should().BeEquivalentTo(expectedPath);
             set.Should()
                .BeEquivalentTo(expectedQueryParameters.Split(new[] { "," }, System.StringSplitOptions.RemoveEmptyEntries));
         }
